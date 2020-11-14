@@ -23,24 +23,25 @@ var obj = {
 var p = new SuperMath(obj);
 
 SuperMath.prototype.check = function() {
-    var flag = true; // Хотите ли Вы произвести действие znak c Х и У?
 
-    if (flag) {
-        if (this.znak === "+" || "-" || "/" || "*" || "%") {
+    var flag = prompt("Хотите ли Вы произвести действие znak c Х и У?");
+
+    if (flag === "да" || flag === "Да") {
+        if (this.znak === "+" || this.znak === "-" || this.znak === "/" || this.znak === "*" || this.znak === "%") {
             if (this.znak === "+") {
-                console.log(this.x + this.y);
+                console.log(this.plus());
             }       
             else if (this.znak === "-") {
-                console.log(this.x - this.y);
+                console.log(this.minus());
             }
             else if (this.znak === "/") {
-                console.log(this.x / this.y);
+                console.log(this.division());
             }
             else if (this.znak === "*") {
-                console.log(this.x * this.y);
+                console.log(this.multiplication());
             }
             else if (this.znak === "%") {
-                console.log(this.x % this.y);
+                console.log(this.remainder());
             }
         }
     }
@@ -48,6 +49,23 @@ SuperMath.prototype.check = function() {
         p.input(this);
     }
 };
+
+SuperMath.prototype.plus = function() {
+    return this.x + this.y;
+}
+SuperMath.prototype.minus = function() {
+    return this.x - this.y;
+}
+SuperMath.prototype.division = function() {
+    return this.x / this.y;
+}
+SuperMath.prototype.multiplication = function() {
+    return this.x * this.y;
+}
+SuperMath.prototype.remainder = function() {
+    return this.x % this.y;
+}
+
 
 SuperMath.prototype.input = function() {
     this.x = prompt("X");
